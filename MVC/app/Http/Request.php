@@ -5,7 +5,7 @@ namespace App\Http;
 /**
  * Class responsável por gerência as requisições que são feitas.
  */
-class request{
+class Request{
     /**
      * Método que foi utilizado para fazer a requisição
      * @var string
@@ -38,8 +38,9 @@ class request{
         $this->queryParamentros = $_GET ?? [];
         $this->postVars = $_POST ?? [];
         $this->headers = getallheaders() ?? '';
-        $this->httpMetodo = $_SERVE['REQUEST_METHOD'] ?? '';
-        $this->uri = $_SERVE['REQUEST_URI']??'';
+        $this->httpMetodo = $_SERVER['REQUEST_METHOD'] ?? '';
+        $this->uri = $_SERVER['REQUEST_URI']??'';
+        
     }
     
     public function getHttpMetodo(){

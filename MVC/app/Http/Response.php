@@ -49,6 +49,16 @@ class Response{
 
 
     /**
+     * Envia os dados(headers) para o Navegador
+     * @return void
+     */
+    private function sendHeader(){
+        http_response_code($this->httpCode);
+        foreach($this->headers as $key=>$value){
+            header($key.':'.$value);
+        }
+    }
+    /**
      * Método responsável por retorna o a resposta 
      * @return mixed
      */
